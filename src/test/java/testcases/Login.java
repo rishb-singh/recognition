@@ -1,4 +1,7 @@
 package testcases;
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
 import org.testng.annotations.Test;
 import base.BaseClass;
 import pageObjects.Dashboard;
@@ -12,7 +15,7 @@ public class Login extends BaseClass {
 	SignInPage signinpage;
 	Dashboard dashboard;
 	@Test
-	public void login() throws InterruptedException{
+	public void login() throws InterruptedException, EncryptedDocumentException, IOException{
 		homepage = new HomePage();
 		signuppage=homepage.clickOnLogIn();	
 		signinpage=signuppage.clickOnSignIn();
@@ -22,7 +25,7 @@ public class Login extends BaseClass {
 		dashboard.clickDashboardDropdown();
 		dashboard.validateUser();
 		
-		// in development branch
+		
 		
 	
 	}
