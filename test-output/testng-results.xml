@@ -2,24 +2,24 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-05T23:48:57 IST" name="Default suite" finished-at="2024-07-05T23:49:05 IST" duration-ms="7736">
+  <suite started-at="2024-07-06T01:54:29 IST" name="Default suite" finished-at="2024-07-06T01:54:42 IST" duration-ms="12905">
     <groups>
     </groups>
-    <test started-at="2024-07-05T23:48:57 IST" name="Default test" finished-at="2024-07-05T23:49:05 IST" duration-ms="7736">
+    <test started-at="2024-07-06T01:54:29 IST" name="Default test" finished-at="2024-07-06T01:54:42 IST" duration-ms="12905">
       <class name="testcases.Sheet">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-05T23:48:57 IST" name="loadConfig" finished-at="2024-07-05T23:48:57 IST" duration-ms="5" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-06T01:54:29 IST" name="loadConfig" finished-at="2024-07-06T01:54:29 IST" duration-ms="5" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-05T23:48:57 IST" name="setup" finished-at="2024-07-05T23:49:04 IST" duration-ms="6969" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-06T01:54:29 IST" name="setup" finished-at="2024-07-06T01:54:41 IST" duration-ms="11983" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="readingSheet()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-05T23:49:04 IST" name="readingSheet" finished-at="2024-07-05T23:49:05 IST" duration-ms="534" status="PASS">
+        <test-method signature="checkSheet()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-06T01:54:41 IST" name="checkSheet" finished-at="2024-07-06T01:54:42 IST" duration-ms="697" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- readingSheet -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-05T23:49:05 IST" name="closeBrowser" finished-at="2024-07-05T23:49:05 IST" duration-ms="203" status="PASS">
+        </test-method> <!-- checkSheet -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testcases.Sheet@428640fa]" started-at="2024-07-06T01:54:42 IST" name="closeBrowser" finished-at="2024-07-06T01:54:42 IST" duration-ms="194" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
