@@ -9,22 +9,33 @@ import base.BaseClass;
 
 public class Dashboard extends BaseClass {
 	public Dashboard() {
-	
+
 		PageFactory.initElements(driver, this);
 	}
-@FindBy (xpath="//body/div[@id='__next']/div[@id='sticky-header-root']/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/button[1]/div[1]/i[1]")
-WebElement dashboardDropdown;
 
-@FindBy (xpath="//div[contains(text(),'vijay+10@vinsol.com')]")
-WebElement userEmail;
+	@FindBy(xpath = "//body/div[@id='__next']/div[@id='sticky-header-root']/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/button[1]/div[1]/i[1]")
+	WebElement dashboardDropdown;
 
-public void clickDashboardDropdown() {
-	dashboardDropdown.click();
-}
+	@FindBy(xpath = "//div[contains(text(),'vijay+10@vinsol.com')]")
+	WebElement userEmail;
+	
+	@FindBy(xpath = "//a[normalize-space()='Recognition']")
+	WebElement recognitionButton;
+	
+	
 
-public void validateUser() {
-	String actualEmail= "vijay+10@vinsol.com";
-	Assert.assertEquals(actualEmail, userEmail.getText());
-	System.out.println(userEmail.getText());
-}
+	public void clickDashboardDropdown() {
+		dashboardDropdown.click();
+	}
+
+	public void validateUser() {
+		String actualEmail = "vijay+10@vinsol.com";
+		Assert.assertEquals(actualEmail, userEmail.getText());
+		System.out.println(userEmail.getText());
+	}
+	public Feeds clickRecognition() {
+		recognitionButton.click();
+		return new Feeds();
+	}
+	
 }
