@@ -30,7 +30,7 @@ public class Program extends BaseClass {
 		feeds = dashboard.clickRecognition();
 		feeds.verifyFeedsPage();
 
-
+		// adding comment in master
 		
 	
 	}
