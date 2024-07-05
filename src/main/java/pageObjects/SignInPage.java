@@ -1,10 +1,14 @@
 package pageObjects;
 
+import java.io.IOException;
+
+import org.apache.poi.EncryptedDocumentException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import base.BaseClass;
+import utility.Utility;
 
 public class SignInPage extends BaseClass {
 
@@ -21,11 +25,15 @@ public class SignInPage extends BaseClass {
 	@FindBy(xpath="//button[@id='1-submit']")
 	WebElement loginCTA;
 	
-	public void enterEmail() throws InterruptedException {
-		emailField.sendKeys("vijay+10@vinsol.com");
+	public void enterEmail() throws InterruptedException, EncryptedDocumentException, IOException {
+		// reading data from excel
+		String email = Utility.readingDataFromSheet("Sheet1", 1, 2);
+		emailField.sendKeys(email);
 	}
-	public void enterPassword() {
-		passwordField.sendKeys("1234567a!");
+	public void enterPassword() throws EncryptedDocumentException, IOException {
+		// reading data from excel
+		String password = Utility.readingDataFromSheet("Sheet1", 2, 2);
+		passwordField.sendKeys(password);
 	}
 	public Dashboard clickLogin() {
 		loginCTA.click();
