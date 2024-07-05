@@ -19,8 +19,16 @@ public class Feeds extends BaseClass {
 	@FindBy (xpath ="//h1[@class=\"purge-main_heading__i9Irx\"]")
 	WebElement recognitionLabel;
 	
+	@FindBy (xpath ="//div[contains(text(),'Create New Program')]")
+	WebElement createNewProgBtn;
+	
+	
 	public void clickOnOptions() {
 		options.click();
+	}
+	public ProgramDetailPage clickOnCreateNewProgBtn() {
+		createNewProgBtn.click();
+		return new ProgramDetailPage();
 	}
 	
 	public void verifyFeedsPage() {
