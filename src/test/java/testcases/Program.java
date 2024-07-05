@@ -32,10 +32,7 @@ public class Program extends BaseClass {
 		dashboard.validateUser();
 		feeds = dashboard.clickRecognition();
 		feeds.verifyFeedsPage();
-
-		// adding comment in master
 		
-	
 	}
 
 }
