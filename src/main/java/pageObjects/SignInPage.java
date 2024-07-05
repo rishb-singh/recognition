@@ -27,12 +27,12 @@ public class SignInPage extends BaseClass {
 	
 	public void enterEmail() throws InterruptedException, EncryptedDocumentException, IOException {
 		// reading data from excel
-		String email = Utility.readingDataFromSheet("Sheet1", 1, 2);
+		String email = Utility.readingDataFromSheet(1, 2);
 		emailField.sendKeys(email);
 	}
 	public void enterPassword() throws EncryptedDocumentException, IOException {
 		// reading data from excel
-		String password = Utility.readingDataFromSheet("Sheet1", 2, 2);
+		String password = Utility.readingDataFromSheet(2, 2);
 		passwordField.sendKeys(password);
 	}
 	public Dashboard clickLogin() {

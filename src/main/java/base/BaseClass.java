@@ -38,7 +38,7 @@ public class BaseClass {
 		}
 	}
 	
-	@BeforeMethod
+	@BeforeTest
 	public void setup() {
 	launchApp();	
 	Duration duration = Duration.ofSeconds(10); // Example: Wait for 10 seconds
@@ -70,9 +70,10 @@ public class BaseClass {
         }
 
 	}
-	@AfterMethod
-	public void closeBrowser()
+	@AfterTest
+	public void closeBrowser() throws InterruptedException
 	{
+		Thread.sleep(2000);
 		driver.quit();
 	}
 	

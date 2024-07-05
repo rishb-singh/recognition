@@ -19,7 +19,7 @@ public class Sheet extends BaseClass {
 	public void checkSheet() throws EncryptedDocumentException, IOException {
 		
 
-		String value = Utility.readingDataFromSheet("Sheet1", 1 , 1);
+		String value = Utility.readingDataFromSheet(1 , 1);
 		
 		System.out.println(value);
 	}
