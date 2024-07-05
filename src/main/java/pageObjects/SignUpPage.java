@@ -19,7 +19,7 @@ public class SignUpPage extends BaseClass {
 	
 	}
 	@FindBy(xpath="//*[@id=\"login-cta\"]/a")
-	public WebElement signInButton;
+	WebElement signInButton;
 	public SignInPage clickOnSignIn() throws InterruptedException {
 
 		Thread.sleep(5000);

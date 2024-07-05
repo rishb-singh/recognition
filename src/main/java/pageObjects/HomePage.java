@@ -9,7 +9,6 @@ public class HomePage extends BaseClass {
 	
 
 	public HomePage() {
-		super();
 		PageFactory.initElements(driver, this);
 	
 	}
