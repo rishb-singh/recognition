@@ -34,5 +34,9 @@ public class Program extends BaseClass {
 		feeds.verifyFeedsPage();
 		
 	}
+	
+	public void createProgram() {
+		feeds.clickOnOptions();
+	}
 
 }
