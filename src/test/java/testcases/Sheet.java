@@ -9,16 +9,20 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
+import utility.Utility;
 
 public class Sheet extends BaseClass {
 	
 
+
 	@Test
-	public void readingSheet() throws EncryptedDocumentException, IOException {
-		String excelPath = "C:\\Users\\Rishabh Singh\\eclipse-workspace\\recognition\\Data\\Book1.xlsx";
+	public void checkSheet() throws EncryptedDocumentException, IOException {
 		
-		String value = WorkbookFactory.create(new FileInputStream(excelPath)).getSheet("Sheet1").getRow(0).getCell(1).getStringCellValue();
+
+		String value = Utility.readingDataFromSheet("Sheet1", 1 , 1);
 		
 		System.out.println(value);
 	}
+	
+
 }
