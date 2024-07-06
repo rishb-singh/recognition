@@ -23,6 +23,7 @@ public class Listeners implements ITestListener {
 
     private ExtentReports extent;
     private ExtentTest test;
+    ExtentSparkReporter reporter;
     private static WebDriver driver;
 
     public static void setDriver(WebDriver driver) {
@@ -35,7 +36,7 @@ public class Listeners implements ITestListener {
         String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss"));
         String pathOfReport = System.getProperty("user.dir") + "\\reports\\extentReport_" + timeStamp + ".html";
         
-        ExtentSparkReporter reporter = new ExtentSparkReporter(pathOfReport);
+        reporter = new ExtentSparkReporter(pathOfReport);
         reporter.config().setReportName("Test Report Name - " + timeStamp);
 
         extent = new ExtentReports();
