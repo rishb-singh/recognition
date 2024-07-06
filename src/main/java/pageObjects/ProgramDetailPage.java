@@ -32,6 +32,9 @@ public class ProgramDetailPage extends BaseClass {
 	@FindBy(xpath = "//input[@id='allowancePerUser']")
 	WebElement allowanceField;
 	
+	@FindBy(xpath = "//button[@class=\"main_btnPrimary__Jq9Q5  \"]")
+	WebElement nextBtn;
+	
 	By frequencyOptions = By.xpath("//a[@class='purge-main_dropdownItem__oaG8h menuListItem']");
 	
 	public void clickFreeProgCheckbox() {
@@ -49,6 +52,12 @@ public class ProgramDetailPage extends BaseClass {
 
 	public void enterProgCurrency(String progCurrency) {
 		progCurrencyNameField.sendKeys(progCurrency);
+	}
+	
+	public AddUsersPage clickNextBtn() throws InterruptedException {
+		nextBtn.click();
+		//Thread.sleep(2500);
+		return new AddUsersPage();
 	}
 	
 	public void selectFrequency(String frequency) {

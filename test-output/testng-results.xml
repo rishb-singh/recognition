@@ -2,32 +2,32 @@
 <testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-07-06T22:56:39 IST" name="Suite" finished-at="2024-07-06T22:57:08 IST" duration-ms="28489">
+  <suite started-at="2024-07-07T02:32:42 IST" name="Default suite" finished-at="2024-07-07T02:33:09 IST" duration-ms="27597">
     <groups>
     </groups>
-    <test started-at="2024-07-06T22:56:39 IST" name="Program" finished-at="2024-07-06T22:57:08 IST" duration-ms="28489">
+    <test started-at="2024-07-07T02:32:42 IST" name="Default test" finished-at="2024-07-07T02:33:09 IST" duration-ms="27597">
       <class name="testcases.Program">
-        <test-method is-config="true" signature="loadConfig()[pri:0, instance:testcases.Program@52b1beb6]" started-at="2024-07-06T22:56:39 IST" name="loadConfig" finished-at="2024-07-06T22:56:39 IST" duration-ms="7" status="PASS">
+        <test-method is-config="true" signature="loadConfig()[pri:0, instance:testcases.Program@53aac487]" started-at="2024-07-07T02:32:42 IST" name="loadConfig" finished-at="2024-07-07T02:32:42 IST" duration-ms="6" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loadConfig -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.Program@52b1beb6]" started-at="2024-07-06T22:56:39 IST" name="setup" finished-at="2024-07-06T22:56:46 IST" duration-ms="7029" status="PASS">
+        <test-method is-config="true" signature="setup()[pri:0, instance:testcases.Program@53aac487]" started-at="2024-07-07T02:32:42 IST" name="setup" finished-at="2024-07-07T02:32:48 IST" duration-ms="6032" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="login()[pri:1, instance:testcases.Program@52b1beb6]" started-at="2024-07-06T22:56:46 IST" name="login" finished-at="2024-07-06T22:57:02 IST" duration-ms="16161" status="PASS">
+        <test-method signature="login()[pri:1, instance:testcases.Program@53aac487]" started-at="2024-07-07T02:32:48 IST" name="login" finished-at="2024-07-07T02:33:02 IST" duration-ms="14469" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- login -->
-        <test-method signature="createFreeProgram()[pri:2, instance:testcases.Program@52b1beb6]" started-at="2024-07-06T22:57:02 IST" name="createFreeProgram" finished-at="2024-07-06T22:57:05 IST" duration-ms="2428" status="PASS">
+        <test-method signature="createFreeProgram()[pri:2, instance:testcases.Program@53aac487]" started-at="2024-07-07T02:33:02 IST" name="createFreeProgram" finished-at="2024-07-07T02:33:07 IST" duration-ms="4667" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- createFreeProgram -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testcases.Program@52b1beb6]" started-at="2024-07-06T22:57:05 IST" name="closeBrowser" finished-at="2024-07-06T22:57:08 IST" duration-ms="2613" status="PASS">
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:testcases.Program@53aac487]" started-at="2024-07-07T02:33:07 IST" name="closeBrowser" finished-at="2024-07-07T02:33:09 IST" duration-ms="2388" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
       </class> <!-- testcases.Program -->
-    </test> <!-- Program -->
-  </suite> <!-- Suite -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
 </testng-results>
