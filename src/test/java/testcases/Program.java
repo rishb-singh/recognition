@@ -8,9 +8,11 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
+import pageObjects.AddUsersPage;
 import pageObjects.Dashboard;
 import pageObjects.Feeds;
 import pageObjects.HomePage;
+import pageObjects.IntegrationPage;
 import pageObjects.ProgramDetailPage;
 import pageObjects.SignInPage;
 import pageObjects.SignUpPage;
@@ -24,6 +26,8 @@ public class Program extends BaseClass {
 	Dashboard dashboard;
 	Feeds feeds;
 	ProgramDetailPage programDetailPage; 
+	AddUsersPage addUsersPage;
+	IntegrationPage integrationPage;
 	@Test (priority = 1)
 	public void login() throws InterruptedException, EncryptedDocumentException, IOException{
 		
@@ -46,7 +50,7 @@ public class Program extends BaseClass {
 		programDetailPage = feeds.clickOnCreateNewProgBtn();
 		programDetailPage.clickFreeProgCheckbox();
 		String freeProgName = Utility.readingDataFromSheet( 3, 2);
-		programDetailPage.enterProgName("freeProgName");
+		programDetailPage.enterProgName(freeProgName);
 		String freeProgCurrency = Utility.readingDataFromSheet( 4, 2);
 		programDetailPage.enterProgCurrency(freeProgCurrency );
 
@@ -56,6 +60,14 @@ public class Program extends BaseClass {
 		// String allowance = Utility.readingDataFromSheet( 6, 2);
 		programDetailPage.enterAllowance("200");
 		// Assert.assertTrue(false);
+		addUsersPage = programDetailPage.clickNextBtn();
+		addUsersPage.clcikOnInpuEmailBtn();
+		String users =Utility.readingDataFromSheet(7, 2);
+		addUsersPage.enterEmail(users);
+		integrationPage = addUsersPage.clcikFinishBtn();
+		integrationPage.vlaidateProgram();
+		
+		
 		
 	}
 
