@@ -5,10 +5,11 @@
     <classes>
       <class name="testcases.Program">
         <methods>
+          <include name="permission"/>
           <include name="setup"/>
           <include name="loadConfig"/>
-          <include name="createFreeProgram"/>
           <include name="closeBrowser"/>
+          <include name="addHashtags"/>
         </methods>
       </class> <!-- testcases.Program -->
     </classes>

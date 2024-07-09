@@ -35,7 +35,17 @@ public class ProgramDetailPage extends BaseClass {
 	@FindBy(xpath = "//button[@class=\"main_btnPrimary__Jq9Q5  \"]")
 	WebElement nextBtn;
 	
+	@FindBy(xpath = "//label[@for='programStartImmediately']")
+	WebElement startImmediatelyChkBox;
+	
+	
+	
 	By frequencyOptions = By.xpath("//a[@class='purge-main_dropdownItem__oaG8h menuListItem']");
+	
+	public void clickstartImmediatelyChkBox() {
+		startImmediatelyChkBox.click();
+		
+	}
 	
 	public void clickFreeProgCheckbox() {
 		freeProgCheckbox.click();

@@ -46,6 +46,8 @@ public class BaseClass {
 	}
 	public void launchApp() {
 		loadConfig();
+		
+		
 		System.out.println(prop.getProperty("Browser"));
 		if (prop.getProperty("Browser").equalsIgnoreCase("Chrome")) {
 			WebDriverManager.chromedriver().setup();
@@ -68,6 +70,8 @@ public class BaseClass {
         } else {
             System.out.println("Browser not supported or specified in config.");
         }
+		
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
 	}
 	@AfterTest

@@ -11,11 +11,13 @@ import base.BaseClass;
 import pageObjects.AddUsersPage;
 import pageObjects.Dashboard;
 import pageObjects.Feeds;
+import pageObjects.Hashtags;
 import pageObjects.HomePage;
 import pageObjects.IntegrationPage;
 import pageObjects.ProgramDetailPage;
 import pageObjects.SignInPage;
 import pageObjects.SignUpPage;
+import pageObjects.Users;
 import utility.Utility;
 
 public class Program extends BaseClass {
@@ -28,6 +30,11 @@ public class Program extends BaseClass {
 	ProgramDetailPage programDetailPage; 
 	AddUsersPage addUsersPage;
 	IntegrationPage integrationPage;
+	Users  users;
+	Hashtags hashtags;
+	
+	String companyValues ="#CompanyValue";
+	
 	@Test (priority = 1)
 	public void login() throws InterruptedException, EncryptedDocumentException, IOException{
 		
@@ -49,6 +56,7 @@ public class Program extends BaseClass {
 		feeds.clickOnOptions();
 		programDetailPage = feeds.clickOnCreateNewProgBtn();
 		programDetailPage.clickFreeProgCheckbox();
+		programDetailPage.clickstartImmediatelyChkBox();
 		String freeProgName = Utility.readingDataFromSheet( 3, 2);
 		programDetailPage.enterProgName(freeProgName);
 		String freeProgCurrency = Utility.readingDataFromSheet( 4, 2);
@@ -66,9 +74,70 @@ public class Program extends BaseClass {
 		addUsersPage.enterEmail(users);
 		integrationPage = addUsersPage.clcikFinishBtn();
 		integrationPage.vlaidateProgram();
-		
-		
+		integrationPage.closeSuccessModal();
 		
 	}
+	
+	@Test(priority=3)
+	public void addUserInProgram () throws EncryptedDocumentException, IOException {
+		
+		users =integrationPage.gotoUsers();
+		users.clickAddUsersBtn();
+		addUsersPage.clcikOnInpuEmailBtn();
+		String users =Utility.readingDataFromSheet(8, 2);
+		addUsersPage.enterEmail(users);
+		addUsersPage.clcikFinishBtn();
+		addUsersPage.validateUsersAdded();
+		addUsersPage.closeSuccessModal();
+	}
+	
+	@Test(priority=4)
+	public void deleteUserInProgram () throws EncryptedDocumentException, IOException {
+		
+		users.clickDeleteUsersBtn();
+		users.confirmDeleteUsersModal();
+		users.validateUsersPage();	
+	}
+	
+	@Test(priority = 5)
+	public void permission () throws InterruptedException {
+		Thread.sleep(500);
+		users.clickPermissionDd();
+		users.makeAdmin();
+		users.clickPermissionDd();
+		users.makeMember();
+	}
+	
+	@Test(priority=6)
+	public void addHashtags() throws InterruptedException {
+		
+		hashtags = users.gotoHashtags();
+		hashtags.makeCompanyValueMandatory();
+		hashtags.addCompanyValue(companyValues);
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
