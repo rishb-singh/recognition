@@ -3,6 +3,7 @@ package pageObjects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import base.BaseClass;
 import utility.Utility;
@@ -28,6 +29,10 @@ public class AddUsersPage extends BaseClass{
 	
 	@FindBy (xpath="//footer[@class='purge-main_orderFooter__8BQwc purge-main_createOrderFooter__3TfPz']//button[1]")
 	WebElement finishBtn;
+	@FindBy (xpath="//button[@class='main_btnPrimary__Jq9Q5 purge-main_closeBtn__xyGmn ']")
+	WebElement closeBtnUserAddMoal;
+	@FindBy (xpath="//div[@class='purge-main_title__03Fil']")
+	WebElement successText;
 	
 	
 	public void clcikOnInpuEmailBtn() {
@@ -36,12 +41,6 @@ public class AddUsersPage extends BaseClass{
 	
 	public IntegrationPage clcikFinishBtn() {
 
-		try {
-			Thread.sleep(250);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		Utility.waitForElementToBeClickable(finishBtn).click();
 		return new IntegrationPage();
 	}
@@ -53,5 +52,16 @@ public class AddUsersPage extends BaseClass{
 		inputEmailModalSubmitBtn.click();
 		
 	}
+	
+	public void validateUsersAdded() {
+		
+		String actText = successText.getText();
+		String expText = "Congrats! 1 new user was added";
+		Assert.assertEquals(expText, actText);
+		
+	}
 
+	public void closeSuccessModal() {
+		closeBtnUserAddMoal.click();
+	}
 }
