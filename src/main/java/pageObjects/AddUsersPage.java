@@ -39,8 +39,9 @@ public class AddUsersPage extends BaseClass{
 		inputEmailBtn.click();
 	}
 	
-	public IntegrationPage clcikFinishBtn() {
+	public IntegrationPage clcikFinishBtn() throws InterruptedException {
 
+		Thread.sleep(1000);
 		Utility.waitForElementToBeClickable(finishBtn).click();
 		return new IntegrationPage();
 	}
