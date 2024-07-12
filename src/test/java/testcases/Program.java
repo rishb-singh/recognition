@@ -3,8 +3,6 @@ package testcases;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
-import org.apache.poi.ss.usermodel.RichTextString;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.BaseClass;
