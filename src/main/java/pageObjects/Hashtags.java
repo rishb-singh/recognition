@@ -28,7 +28,8 @@ public class Hashtags extends BaseClass {
 	WebElement successToast;
 	@FindBy(xpath="//span[@class='main_statusPill__vF2oK main_pill__J7brs main_lavenderPill__KE2vi']")
 	WebElement extractHashtagText;
-	
+	@FindBy(xpath="//div[normalize-space()='General']")
+	WebElement generalCta;
 	
 	public void makeCompanyValueMandatory() {
 		companyValueSwitch.click();
@@ -44,6 +45,11 @@ public class Hashtags extends BaseClass {
 		successToast.isDisplayed();
 		String act = extractHashtagText.getText();
 		Assert.assertEquals(values, act);
+	}
+	
+	public General gotoGeneral() {
+		generalCta.click();
+		return new General();
 	}
 	
 }

@@ -3,16 +3,20 @@ package testcases;
 import java.io.IOException;
 
 import org.apache.poi.EncryptedDocumentException;
+
 import org.testng.annotations.Test;
 
 import base.BaseClass;
 import pageObjects.AddUsersPage;
 import pageObjects.Dashboard;
+import pageObjects.DeleteProgramPage;
 import pageObjects.Feeds;
+import pageObjects.General;
 import pageObjects.Hashtags;
 import pageObjects.HomePage;
 import pageObjects.IntegrationPage;
 import pageObjects.ProgramDetailPage;
+import pageObjects.ProgramHomePage;
 import pageObjects.SignInPage;
 import pageObjects.SignUpPage;
 import pageObjects.Users;
@@ -30,8 +34,14 @@ public class Program extends BaseClass {
 	IntegrationPage integrationPage;
 	Users  users;
 	Hashtags hashtags;
+	General general;
+	DeleteProgramPage deleteProgramPage;
+	ProgramHomePage programHomePage;
 	
 	String companyValues ="#CompanyValue";
+	String editName= "Prog name edit";
+	String editAllowance = "500";
+	String editFreq = "WEEKLY";
 	
 	@Test (priority = 1)
 	public void login() throws InterruptedException, EncryptedDocumentException, IOException{
@@ -77,7 +87,7 @@ public class Program extends BaseClass {
 	}
 	
 	@Test(priority=3)
-	public void addUserInProgram () throws EncryptedDocumentException, IOException {
+	public void addUserInProgram () throws EncryptedDocumentException, IOException, InterruptedException {
 		
 		users =integrationPage.gotoUsers();
 		users.clickAddUsersBtn();
@@ -115,8 +125,36 @@ public class Program extends BaseClass {
 
 	}
 	
+	@Test(priority=7)
+	public void GeneralSection() throws InterruptedException {
+		
+		general = hashtags.gotoGeneral();
+		general.editName(editName);
+		general.editAllowance(editAllowance);
+		general.editFrequency(editFreq);
+		general.clickSave();
+		general.closeConfirmationModal();
+		
+	}
+	
+	@Test(priority=987)
+	public void Feeds() {
+		//general
+		 
+		
+	}
 	
 	
+	
+	@Test(priority=987)
+	public void DeleteProgram() {
+		
+		deleteProgramPage = general.gotoDeleteProgSection();
+		deleteProgramPage.clickDeleteProg();
+		programHomePage = deleteProgramPage.confirmDeleteProg();
+		programHomePage.validatePage();
+		
+	}
 	
 	
 	

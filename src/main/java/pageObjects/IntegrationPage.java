@@ -23,6 +23,8 @@ public class IntegrationPage  extends BaseClass {
 	WebElement successModalCloseBtn;
 	@FindBy(xpath="//div[normalize-space()='Users']")
 	WebElement usersBtn;
+	@FindBy(xpath="//div[normalize-space()='General']")
+	WebElement generalCta;
 	
 	
 	public void closeSuccessModal() {
@@ -38,6 +40,11 @@ public class IntegrationPage  extends BaseClass {
 	public Users gotoUsers() {
 		usersBtn.click();
 		return new Users();
+	}
+	
+	public General gotoGeneral() {
+		generalCta.click();
+		return new General();
 	}
 	
 	

@@ -11,11 +11,7 @@
 		</classes>
 	</test>
 
-	<test thread-count="5" name="Login">
-		<classes>
-			<class name="testcases.Login" />
-		</classes>
-	</test>
+	
 
 </suite> <!--
 Suite -->
