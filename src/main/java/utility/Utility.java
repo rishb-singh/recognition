@@ -39,4 +39,15 @@ public class Utility extends BaseClass {
 		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
 		return wait.until(ExpectedConditions.elementToBeClickable(ele));
 	}
+	
+	public static WebElement  waitForElementToBeVisible(WebElement ele) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		return wait.until(ExpectedConditions.visibilityOf(ele));
+	}
+	public static Boolean  waitForElementNotToBeVisible(WebElement ele) {
+
+		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+		return wait.until(ExpectedConditions.invisibilityOf(ele));
+	}
 }

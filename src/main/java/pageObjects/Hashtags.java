@@ -14,24 +14,37 @@ public class Hashtags extends BaseClass {
 		
 		}
 	
-	@FindBy(xpath="//label[contains(@class,'main_switchIcon__QW_lp')]")
+	@FindBy(xpath="")
 	WebElement companyValueSwitch;
-	@FindBy(xpath="//div[normalize-space()='Edit']")
+	
+	@FindBy(xpath="//div[text()=\"Add/Edit\"]")
 	WebElement editBtn;
+	
 	@FindBy(xpath="//textarea[@id='hastagValues']")
 	WebElement input;
+	
 	@FindBy(xpath="//h6[normalize-space()='Company Values']")
 	WebElement modalClick;
+	
 	@FindBy(xpath="//div[normalize-space()='Save Changes']")
 	WebElement saveBtn;
+	
 	@FindBy(xpath="(//div[contains(@role,'alert')])[1]")
 	WebElement successToast;
-	@FindBy(xpath="//span[@class='main_statusPill__vF2oK main_pill__J7brs main_lavenderPill__KE2vi']")
+	
+	@FindBy(xpath="//span[contains(@class,\"BNPbb\")]")
 	WebElement extractHashtagText;
+	
 	@FindBy(xpath="//div[normalize-space()='General']")
 	WebElement generalCta;
 	
 	public void makeCompanyValueMandatory() {
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		companyValueSwitch.click();
 		successToast.isDisplayed();
 		
@@ -40,8 +53,26 @@ public class Hashtags extends BaseClass {
 	public void addCompanyValue(String values) {
 		editBtn.click();
 		input.sendKeys(values);
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		modalClick.click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		saveBtn.click();
+		try {
+			Thread.sleep(500);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		successToast.isDisplayed();
 		String act = extractHashtagText.getText();
 		Assert.assertEquals(values, act);

@@ -5,12 +5,8 @@
     <classes>
       <class name="testcases.Program">
         <methods>
-          <include name="permission"/>
           <include name="setup"/>
-          <include name="addUserInProgram"/>
-          <include name="deleteUserInProgram"/>
           <include name="loadConfig"/>
-          <include name="GeneraSection"/>
           <include name="closeBrowser"/>
           <include name="addHashtags"/>
         </methods>

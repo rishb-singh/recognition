@@ -41,8 +41,8 @@ public class BaseClass {
 	@BeforeTest
 	public void setup() {
 	launchApp();	
-	Duration duration = Duration.ofSeconds(10); // Example: Wait for 10 seconds
-    driver.manage().timeouts().implicitlyWait(duration);
+	// Duration duration = Duration.ofSeconds(10); // Example: Wait for 10 seconds
+    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
 	public void launchApp() {
 		loadConfig();

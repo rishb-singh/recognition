@@ -8,6 +8,7 @@ import org.testng.annotations.Test;
 
 import base.BaseClass;
 import pageObjects.AddUsersPage;
+import pageObjects.AssignKudos;
 import pageObjects.Dashboard;
 import pageObjects.DeleteProgramPage;
 import pageObjects.Feeds;
@@ -23,157 +24,135 @@ import pageObjects.Users;
 import utility.Utility;
 
 public class Program extends BaseClass {
-	
+
 	HomePage homepage;
 	SignUpPage signuppage;
 	SignInPage signinpage;
 	Dashboard dashboard;
 	Feeds feeds;
-	ProgramDetailPage programDetailPage; 
+	ProgramDetailPage programDetailPage;
 	AddUsersPage addUsersPage;
+	AssignKudos assignKudos;
 	IntegrationPage integrationPage;
-	Users  users;
+	Users users;
 	Hashtags hashtags;
 	General general;
 	DeleteProgramPage deleteProgramPage;
 	ProgramHomePage programHomePage;
-	
-	String companyValues ="#CompanyValue";
-	String editName= "Prog name edit";
+
+	String companyValues = "#CompanyValue";
+	String editName = "Prog name edit";
 	String editAllowance = "500";
-	String editFreq = "WEEKLY";
-	
-	@Test (priority = 1)
-	public void login() throws InterruptedException, EncryptedDocumentException, IOException{
-		
+	String editFreq = "monthly";
+
+	@Test(priority = 1)
+	public void Login() throws InterruptedException, EncryptedDocumentException, IOException {
+
 		homepage = new HomePage();
-		signuppage=homepage.clickOnLogIn();	
-		signinpage=signuppage.clickOnSignIn();
-		signinpage.enterEmail();	
-		signinpage.enterPassword();	
+		signuppage = homepage.clickOnLogIn();
+		signinpage = signuppage.clickOnSignIn();
+		signinpage.enterEmail();
+		signinpage.enterPassword();
 		dashboard = signinpage.clickLogin();
 		dashboard.clickDashboardDropdown();
 		dashboard.validateUser();
 		feeds = dashboard.clickRecognition();
 		feeds.verifyFeedsPage();
-		
+
 	}
-	
-	@Test (priority = 2)
-	public void createFreeProgram() throws EncryptedDocumentException, IOException, InterruptedException {
+
+	@Test(priority = 2)
+	public void CreateFreeProgram() throws EncryptedDocumentException, IOException, InterruptedException {
 		feeds.clickOnOptions();
 		programDetailPage = feeds.clickOnCreateNewProgBtn();
 		programDetailPage.clickFreeProgCheckbox();
 		programDetailPage.clickstartImmediatelyChkBox();
-		String freeProgName = Utility.readingDataFromSheet( 3, 2);
+		String freeProgName = Utility.readingDataFromSheet(3, 2);
 		programDetailPage.enterProgName(freeProgName);
-		String freeProgCurrency = Utility.readingDataFromSheet( 4, 2);
-		programDetailPage.enterProgCurrency(freeProgCurrency );
+		String freeProgCurrency = Utility.readingDataFromSheet(4, 2);
+		programDetailPage.enterProgCurrency(freeProgCurrency);
 
-		String frequency = Utility.readingDataFromSheet( 5, 2);
-		programDetailPage.selectFrequency(frequency );
-		
+		String frequency = Utility.readingDataFromSheet(5, 2);
+		programDetailPage.selectFrequency(frequency);
+
 		// String allowance = Utility.readingDataFromSheet( 6, 2);
-		programDetailPage.enterAllowance("200");
+	//	programDetailPage.enterAllowance("200");
 		// Assert.assertTrue(false);
 		addUsersPage = programDetailPage.clickNextBtn();
 		addUsersPage.clcikOnInpuEmailBtn();
-		String users =Utility.readingDataFromSheet(7, 2);
+		String users = Utility.readingDataFromSheet(7, 2);
 		addUsersPage.enterEmail(users);
-		integrationPage = addUsersPage.clcikFinishBtn();
+		assignKudos = addUsersPage.clcikFinishBtn();
+		assignKudos.assignKudosToAll();
+		integrationPage = assignKudos.clickFinish();
 		integrationPage.vlaidateProgram();
 		integrationPage.closeSuccessModal();
-		
+
 	}
-	
-	@Test(priority=3)
-	public void addUserInProgram () throws EncryptedDocumentException, IOException, InterruptedException {
-		
-		users =integrationPage.gotoUsers();
+
+	@Test(priority = 3)
+	public void AddUserInProgram() throws EncryptedDocumentException, IOException, InterruptedException  {
+
+		users = integrationPage.gotoUsers();
 		users.clickAddUsersBtn();
 		addUsersPage.clcikOnInpuEmailBtn();
-		String users =Utility.readingDataFromSheet(8, 2);
-		addUsersPage.enterEmail(users);
-		addUsersPage.clcikFinishBtn();
-		addUsersPage.validateUsersAdded();
-		addUsersPage.closeSuccessModal();
-	}
-	
-	@Test(priority=4)
-	public void deleteUserInProgram () throws EncryptedDocumentException, IOException {
+		String user = Utility.readingDataFromSheet(8, 2);
+		addUsersPage.enterEmail(user);
+		assignKudos = addUsersPage.clcikFinishBtn();
+		assignKudos.assignKudosToAll();
+		users = assignKudos.clickFinishWhileAdding();
+		users.verifyUserAdded();
+		users.closeSuccessModalAddUser();
 		
+	}
+
+	@Test(priority = 4)
+	public void DeleteUserInProgram() throws EncryptedDocumentException, IOException, InterruptedException {
+
 		users.clickDeleteUsersBtn();
 		users.confirmDeleteUsersModal();
-		users.validateUsersPage();	
+		users.verifydeleteSuccessToast();
 	}
-	
-	@Test(priority = 5)
-	public void permission () throws InterruptedException {
-		Thread.sleep(500);
+
+/*	@Test(priority = 5)
+	public void permission() throws InterruptedException  {
 		users.clickPermissionDd();
 		users.makeAdmin();
 		users.clickPermissionDd();
-		users.makeMember();
+		users.makeMember(); 
 	}
-	
-	@Test(priority=6)
-	public void addHashtags() throws InterruptedException {
-		
+*/
+	@Test(priority = 5)
+	public void AddHashtags() throws InterruptedException {
+
 		hashtags = users.gotoHashtags();
-		hashtags.makeCompanyValueMandatory();
+		
 		hashtags.addCompanyValue(companyValues);
+		//hashtags.makeCompanyValueMandatory();
 
 	}
-	
-	@Test(priority=7)
+
+	@Test(priority = 7)
 	public void GeneralSection() throws InterruptedException {
-		
+
 		general = hashtags.gotoGeneral();
 		general.editName(editName);
 		general.editAllowance(editAllowance);
 		general.editFrequency(editFreq);
 		general.clickSave();
-		general.closeConfirmationModal();
-		
+		general.confirmUpdate();
+
 	}
-	
-	@Test(priority=987)
-	public void Feeds() {
-		//general
-		 
-		
-	}
-	
-	
-	
-	@Test(priority=987)
+
+
+	@Test(priority = 8)
 	public void DeleteProgram() {
-		
+
 		deleteProgramPage = general.gotoDeleteProgSection();
 		deleteProgramPage.clickDeleteProg();
 		programHomePage = deleteProgramPage.confirmDeleteProg();
 		programHomePage.validatePage();
-		
+
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 }

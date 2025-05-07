@@ -34,7 +34,7 @@ public class IntegrationPage  extends BaseClass {
 	public void vlaidateProgram() throws EncryptedDocumentException, IOException {
 		String progName = Utility.readingDataFromSheet(3, 2);
 		String successMsgActual = successModal.getText();
-		String successMsgExpected = "Congrats! Your Program ‘" + progName +"’ is created";
+		String successMsgExpected = "Congrats! Your Program ‘" + progName +"’ has been created";
 		Assert.assertEquals(successMsgExpected, successMsgActual);	
 	}
 	public Users gotoUsers() {

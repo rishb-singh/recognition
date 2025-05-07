@@ -13,30 +13,33 @@ import utility.Utility;
 public class SignInPage extends BaseClass {
 
 	public SignInPage() {
-	PageFactory.initElements(driver, this);	
+		PageFactory.initElements(driver, this);
 	}
-	
-	@FindBy(xpath="//input[@id='1-email']")
+
+	@FindBy(xpath = "//input[@id=\"email\"]")
 	WebElement emailField;
-	
-	@FindBy(xpath="//input[@id='1-password']")
+
+	@FindBy(xpath = "//input[@id=\"password\"]")
 	WebElement passwordField;
-	
-	@FindBy(xpath="//button[@id='1-submit']")
+
+	@FindBy(xpath = "//button[@type=\"submit\"]")
 	WebElement loginCTA;
-	
+
 	public void enterEmail() throws InterruptedException, EncryptedDocumentException, IOException {
 		// reading data from excel
 		String email = Utility.readingDataFromSheet(1, 2);
 		emailField.sendKeys(email);
+
 	}
+
 	public void enterPassword() throws EncryptedDocumentException, IOException {
 		// reading data from excel
 		String password = Utility.readingDataFromSheet(2, 2);
 		passwordField.sendKeys(password);
 	}
+
 	public Dashboard clickLogin() {
 		loginCTA.click();
 		return new Dashboard();
-}
+	}
 }

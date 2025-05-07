@@ -18,13 +18,13 @@ public class Dashboard extends BaseClass {
 		PageFactory.initElements(driver, this);
 	}
 
-	@FindBy(xpath = "//body/div[@id='__next']/div[@id='sticky-header-root']/div[1]/div[1]/div[1]/div[3]/div[2]/div[1]/div[1]/div[1]/button[1]/div[1]/i[1]")
+	@FindBy(xpath = "//i[@class=\"sh-b6sBD\"]")
 	WebElement dashboardDropdown;
 
-	@FindBy(xpath = "//div[@class='TI76AP']")
+	@FindBy(xpath = "//div[@class=\"sh-QWeo7\"]")
 	WebElement userEmail;
 	
-	@FindBy(xpath = "//a[normalize-space()='Recognition']")
+	@FindBy(xpath = "//span[text()=\"Recognition\"]//parent::a")
 	WebElement recognitionButton;
 	
 	
@@ -38,7 +38,10 @@ public class Dashboard extends BaseClass {
 		Assert.assertEquals(actualEmail, userEmail.getText());
 		System.out.println(userEmail.getText());
 	}
+	
+	
 	public Feeds clickRecognition() {
+		
 		recognitionButton.click();
 		return new Feeds();
 	}
