@@ -12,7 +12,7 @@ public class HomePage extends BaseClass {
 		PageFactory.initElements(driver, this);
 	
 	}
-	@FindBy(xpath="//header/div[1]/div[1]/div[3]/div[1]/div[1]/div[1]/a[1]/span[1]/span[1]")
+	@FindBy(xpath="//span[text()=\"Login\"]")
 	WebElement loginButton;
 	public SignUpPage clickOnLogIn() {
 		loginButton.click();

@@ -40,7 +40,8 @@ public class ProgramDetailPage extends BaseClass {
 	
 	
 	
-	By frequencyOptions = By.xpath("//a[@class='purge-main_dropdownItem__oaG8h menuListItem']");
+	By frequencyOptions = By.xpath("//a[@role=\"button\"]");
+	
 	
 	public void clickstartImmediatelyChkBox() {
 		startImmediatelyChkBox.click();

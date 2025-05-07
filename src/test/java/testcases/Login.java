@@ -24,10 +24,6 @@ public class Login extends BaseClass {
 		dashboard = signinpage.clickLogin();
 		dashboard.clickDashboardDropdown();
 		dashboard.validateUser();
-		
-		
-		
-	
 	}
 
 }

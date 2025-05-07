@@ -1,5 +1,6 @@
 package pageObjects;
 
+import utility.Utility;
 
 import java.time.Duration;
 
@@ -9,24 +10,27 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 import base.BaseClass;
 
 public class SignUpPage extends BaseClass {
 
 	public SignUpPage() {
-	PageFactory.initElements(driver, this);	
-	
+		PageFactory.initElements(driver, this);
+
 	}
-	@FindBy(xpath="//*[@id=\"login-cta\"]/a")
+
+	@FindBy(xpath = "(//a[contains(text(), \"Log In\")])[1]")
 	WebElement signInButton;
+
+	
+
 	public SignInPage clickOnSignIn() throws InterruptedException {
 
-		Thread.sleep(5000);
-		//WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(10));
-		//WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id='login-cta']/a")));
+	
 		signInButton.click();
 		return new SignInPage();
+
 	}
 }
-

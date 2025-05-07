@@ -16,10 +16,10 @@ public class Feeds extends BaseClass {
 	@FindBy (xpath ="//span[contains(@class,'purge-main_moreIcon__nBasH')]")
 	WebElement options;
 	
-	@FindBy (xpath ="//h1[@class=\"purge-main_heading__i9Irx\"]")
-	WebElement recognitionLabel;
+	@FindBy (xpath ="//div[@class=\"main_summaryText__peJLw\"]")
+	WebElement summaryText;
 	
-	@FindBy (xpath ="//div[contains(text(),'Create New Program')]")
+	@FindBy (xpath ="//a[text()=\"Create New Program\"]")
 	WebElement createNewProgBtn;
 	
 	
@@ -32,9 +32,9 @@ public class Feeds extends BaseClass {
 	}
 	
 	public void verifyFeedsPage() {
-	String exp = recognitionLabel.getText().split(":")[0];
+	String exp = summaryText.getText().split(":")[0];
 	System.out.println(exp);
-	Assert.assertEquals("Recognition Program", exp);
+	Assert.assertEquals("Summary for", exp);
 
 		}
 }

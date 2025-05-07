@@ -14,7 +14,7 @@ public class AddUsersPage extends BaseClass{
 		PageFactory.initElements(driver, this);
 	}
 	
-	@FindBy (xpath="(//button[@class='main_btnOutlinePrimary__9LyIm purge-main_submit__bwVnF '])[3]")
+	@FindBy (xpath="//div[text()=\"Input Emails\"]")
 	WebElement inputEmailBtn;
 	
 	@FindBy (xpath="//textarea[@id='autocomplete']")
@@ -27,7 +27,7 @@ public class AddUsersPage extends BaseClass{
 	@FindBy (xpath="//div[normalize-space()='Submit']")
 	WebElement inputEmailModalSubmitBtn;
 	
-	@FindBy (xpath="//footer[@class='purge-main_orderFooter__8BQwc purge-main_createOrderFooter__3TfPz']//button[1]")
+	@FindBy (xpath="//div[text()=\"Next\"]")
 	WebElement finishBtn;
 	@FindBy (xpath="//button[@class='main_btnPrimary__Jq9Q5 purge-main_closeBtn__xyGmn ']")
 	WebElement closeBtnUserAddMoal;
@@ -39,11 +39,11 @@ public class AddUsersPage extends BaseClass{
 		inputEmailBtn.click();
 	}
 	
-	public IntegrationPage clcikFinishBtn() throws InterruptedException {
+	public AssignKudos clcikFinishBtn() throws InterruptedException {
 
 		Thread.sleep(1000);
 		Utility.waitForElementToBeClickable(finishBtn).click();
-		return new IntegrationPage();
+		return new AssignKudos();
 	}
 
 	
@@ -54,15 +54,17 @@ public class AddUsersPage extends BaseClass{
 		
 	}
 	
-	public void validateUsersAdded() {
+	public void validateUsersAdded()  {
 		
 		String actText = successText.getText();
 		String expText = "Congrats! 1 new user was added";
 		Assert.assertEquals(expText, actText);
+		//driver.navigate().refresh();
+		
 		
 	}
 
-	public void closeSuccessModal() {
+	public void closeSuccessModal()  {
 		closeBtnUserAddMoal.click();
 	}
 }

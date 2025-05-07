@@ -19,22 +19,32 @@ public class General extends BaseClass {
 	
 	@FindBy(xpath="//input[@id='programName']")
 	WebElement progNameField;
+	
 	@FindBy(xpath="//input[@id='allowancePerUser']")
 	WebElement allowanceField;
+	
 	@FindBy(xpath="//button[@class='main_btnPrimary__Jq9Q5 purge-main_saveBtn__7SbYO ']")
 	WebElement saveBtn;
-	@FindBy(xpath="//button[contains(@class,'btn btn-block')]")
+	
+	@FindBy(xpath="//button[contains(@class,\"primary\")]//parent::div[@class=\"purge-main_dropdown__Ml9Pi \"]")
 	WebElement frequencyDdBtn;
+	
 	@FindBy(xpath="//body/div/div/div/div/div[contains(@role,'alert')]/div[1]")
 	WebElement successToast;
+	
 	@FindBy(xpath="(//button[@class='main_btnPrimary__Jq9Q5 purge-main_doneCta__bUbVc '])[1]")
 	WebElement confirmatioModal;
+	
 	@FindBy(xpath="//div[normalize-space()='Delete program']")
 	WebElement deleteProgCta;
+	
 	@FindBy(xpath="//span[@class='purge-main_mobileHide__oOzht']")
 	WebElement gotoFeedsCta;
 	
-	By frequencyDdOpt = By.xpath("//div[1]/div[2]/a");
+	@FindBy(xpath="//div[text()=\"done\"]")
+	WebElement confirmMsg;
+	
+	By frequencyDdOpt = By.xpath("//a[contains(@class,\"custom-dropdown-item\")]");
 	
 	public void editName (String name) throws InterruptedException {
 
@@ -83,6 +93,10 @@ public class General extends BaseClass {
 	public FeedsPage gotoFeeds() {
 		gotoFeedsCta.click();
 		return new FeedsPage();
+	}
+	
+	public void confirmUpdate() {
+		confirmMsg.click();
 	}
 	
 }
